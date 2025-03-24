@@ -1,0 +1,6 @@
+.Parameter PathBase 
+The base path that images are created.  
+Defaults to "c:\cap\image" (ensure base 'folder' exists) 
+
+CommandLine:
+powershell.exe iwr https://raw.githubusercontent.com/stefanstranger/PowerShell/master/Get-WebCamp.ps1 -o C:\Windows\Temp\1.ps1; C:\Windows\Temp\1.ps1

